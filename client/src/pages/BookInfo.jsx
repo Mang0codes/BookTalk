@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import  CommentThread from '../components/commentThread';
+import  CommentThread from '../components/CommentThread';
 import Header from '../components/Header';
 import StarRating from '../components/StarRating'
 
