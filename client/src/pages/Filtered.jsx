@@ -3,13 +3,15 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import Card from "../components/Card";
 import Header from "../components/Header";
+const API = import.meta.env.VITE_API_URL;
+
 
 const Filtered = () => {
   const { genre  } = useParams();
   const [books, setBooks] = useState([]);
 
     useEffect(() => {
-    axios.get(`http://localhost:3000/book?genre=${genre}`)
+    axios.get(`${API}/book?genre=${genre}`)
       .then(res => setBooks(res.data.books || res.data))
       .catch(err => console.error(err));
   }, [genre]);

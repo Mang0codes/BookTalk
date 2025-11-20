@@ -4,6 +4,8 @@ import Card from '../components/Card'
 import Genre from '../components/Genre'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+const API = import.meta.env.VITE_API_URL;
+
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -22,7 +24,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/book`, {
+        const res = await axios.get(`${API}/book`, {
           params: search ? { q: search } : {}, // only send q if searching
         });
         if (Array.isArray(res.data)) {
@@ -43,7 +45,7 @@ const Home = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this book?")) return;
     try {
-      await axios.delete(`http://localhost:3000/book/${id}`, {
+      await axios.delete(`${API}/book/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBooks(books.filter(book => book._id !== id));

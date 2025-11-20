@@ -4,6 +4,8 @@ import axios from 'axios';
 import  CommentThread from '../components/CommentThread';
 import Header from '../components/Header';
 import StarRating from '../components/StarRating'
+const API = import.meta.env.VITE_API_URL;
+
 
 const BookInfo = () => {
 
@@ -14,7 +16,7 @@ const BookInfo = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/book/${bookId}`)
+    axios.get(`${API}/book/${bookId}`)
       .then(res => setBook(res.data.book))
       .catch(err => console.error(err));
 
