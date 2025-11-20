@@ -51,7 +51,6 @@ const CommentThread = ({ comment, bookId, refreshComments }) => {
   return (
     <div className="border-b border-white/20 pb-4">
       <div className="flex gap-3">
-       
         <div class="relative inline-flex items-center justify-center w-8 h-8 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
     <span class="font-medium text-gray-600 dark:text-gray-300">{comment.user.name[0]}</span>
 </div>
